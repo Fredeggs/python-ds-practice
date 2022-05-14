@@ -15,3 +15,14 @@ def two_list_dictionary(keys, values):
         >>> two_list_dictionary(['a', 'b', 'c'], [1, 2, 3, 4])
         {'a': 1, 'b': 2, 'c': 3}
    """
+    new_dict = {}
+    difference = len(keys) - len(values)
+    if difference >= 0:
+        for num in range(difference):
+            values.append(None)
+        for key in keys:
+            new_dict[key] = values.pop(0)
+    elif difference < 0:
+        for key in keys:
+            new_dict[key] = values.pop(0)
+    return new_dict
